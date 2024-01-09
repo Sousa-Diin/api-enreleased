@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Data Display</title>
+  <style>
+    /* Basic styling for the columns */
+    .column {
+      width: 33.33%;
+      float: left;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="column" id="column1"></div>
+  <div class="column" id="column2"></div>
+  <div class="column" id="column3"></div>
+
+  <script>
+    // JavaScript logic to retrieve data from localStorage and display it
+    document.addEventListener("DOMContentLoaded", function() {
+      // Retrieve data from localStorage
+      const userData = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      // Calculate number of users and items per column
+      const numUsers = userData.length;
+      const itemsPerColumn = Math.ceil(numUsers / 3);
+
+      // Divide user data into three columns
+      for (let i = 0; i < 3; i++) {
+        const columnId = `column${i + 1}`;
+        const column = document.getElementById(columnId);
+
+        // Calculate start and end indices for each column
+        const start = i * itemsPerColumn;
+        const end = Math.min(start + itemsPerColumn, numUsers);
+
+        // Display user data in the column
+        for (let j = start; j < end; j++) {
+          const user = userData[j];
+          const userParag = document.createElement("p");
+          userParag.textContent = `Name: ${user.nome} Email: ${user.email}`;
+          column.appendChild(userParag);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

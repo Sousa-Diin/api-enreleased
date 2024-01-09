@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="image/truck_front.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <!--<link rel="manifest" href="manifest.json">-->
+    <title>Systrat EN - Desktop</title>
+  </head>
+  <body id="container">
+    <header>
+      <h2>Gestor de tratativas</h2>
+      <div>
+        <img onmouseenter="menu()" src="src/upgrade/img/user.png" alt="login" />
+      </div>
+    </header>
+
+    <div class="login-container">
+      <nav id="sideBar" onmouseenter="show(false)">
+        <div>
+          <img
+            class="menu-sanduiche"
+            src="src/upgrade/img/home.svg"
+            alt="icon-home"
+          />
+        </div>
+        <ul>
+          <li class="list-item" onclick="myLink('profile')">
+            <aside class="menu-list-item">
+              <img
+                class="menu-list-img"
+                src="src/upgrade/img/login.svg"
+                alt="ico-profile"
+              />
+              <span>Log in</span>
+            </aside>
+          </li>
+
+          <li class="list-item" onclick="link('settings')">
+            <aside class="menu-list-item">
+              <img
+                class="menu-list-img"
+                src="src/upgrade/img/palette.svg"
+                alt="ico-themes"
+              />
+              <div id="theme-action">
+                <span class="title-theme" onmouseenter="show(true)"
+                  >Aparencia</span
+                >
+                <div id="div-themes">
+                  <button id="login-tema-light" type="button" onclick="tema(1)">
+                    Light
+                  </button>
+                  <button id="login-tema-dark" type="button" onclick="tema(0)">
+                    Dark
+                  </button>
+                </div>
+              </div>
+            </aside>
+          </li>
+
+          <li class="list-item" onclick="myLink('download')">
+            <aside class="menu-list-item">
+              <img
+                class="menu-list-img"
+                src="src/upgrade/img/download.png"
+                alt="ico-download"
+              />
+              <span>Record</span>
+            </aside>
+          </li>
+          <li class="list-item" onclick="myLink('download')">
+            <aside class="menu-list-item">
+              <img
+                class="menu-list-img"
+                src="src/upgrade/img/timer.svg"
+                alt="ico-download"
+              />
+              <span>Settings </span>
+            </aside>
+          </li>
+
+          <li class="list-item" onclick="link('logout')">
+            <aside class="menu-list-item">
+              <img
+                class="menu-list-img"
+                src="src/upgrade/img/power_settings.svg"
+                alt="ico-logout"
+              />
+              <span>Exit</span>
+            </aside>
+          </li>
+        </ul>
+      </nav>
+
+      <section>
+        <div id="login-box">
+          <h2>Systrat</h2>
+          <form id="loginForm">
+            <input id="email" type="text" placeholder="Login" required />
+            <input id="password" type="password" placeholder="Senha" required />
+            <input id="btn" type="submit" value="Entrar" />
+            <section id="login-link">
+              <a href="/#" id="login-recuperar-senha">Esqueci minha senha</a>
+              <a style="color: #007bff" href="src/createUser/bd.html" id="login-criar-conta">Criar uma conta</a>
+            </section>
+          </form>
+        </div>
+      </section>
+    </div>
+    <a
+      class="flex-row justify-between gap-1 top-0 p-2 absolute left-0 color-slate-50 text-decorate-dashed"
+      href="https://site.soluttec.repl.co"
+      ><i class="fa-regular fa-circle-left"></i>
+      <address>voltar para o site</address></a
+    >
+    <script src="script.js"></script>
+    <script src="./"></script>
+  </body>
+</html>

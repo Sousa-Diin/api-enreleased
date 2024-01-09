@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./style/cssDefault.css" />
+    <link rel="icon" type="image/x-icon" href="image/truck_front.ico" />
+    <!--<link rel="manifest" href="manifest.json">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <title id="title-display">Form - Display | SysTrat</title>
+  </head>
+  <body id="acess-denield">
+    <main id="main">
+      <div class="desprederTop"></div>
+      <header>
+        <div class="flex jc-between _w-25 logo-tittle">
+          <figure class="container-logos">
+            <img
+              id="logo-prop"
+              class="logo-proprietario-usuario"
+              src="/image/logo.jpg"
+              alt="logo da empresa propritaria do software"
+            />
+            <img
+              id="logo-user"
+              class="logo-proprietario-usuario"
+              src="/image/expresso_logo.jpg"
+              alt="logo da empresa usuaria do software"
+            />
+          </figure>
+          <h2 class="p-2">Gestor de tratativas</h2>
+        </div>
+        <!--<article id="audit" > <pre id="myAudit" style="font-size: 10pt;">0</pre> <span>Audit</span> </article>-->
+        <aside class="login-profile">
+          <span id="login-name" class="_w-40"></span>
+          <img src="upgrade/img/user.png" alt="login" />
+        </aside>
+      </header>
+
+      <section id="container">
+        <nav id="sideBar">
+          <section class="sideBar-top">
+            <div>
+              <img
+                class="menu-sanduiche"
+                src="upgrade/img/menu.png"
+                alt="menu-sanduiche"
+              />
+            </div>
+            <ul>
+              <li class="list-item" id="profile" onclick="myLink('profile')">
+                <aside class="menu-list-item">
+                  <img
+                    class="menu-list-img"
+                    src="upgrade/img/user (1).png"
+                    alt="ico-profile"
+                  />
+                  <span>Profile</span>
+                </aside>
+              </li>
+              <li class="list-item" 
+                onclick="myLink('audit')">
+                <aside class="menu-list-item">
+                  <img
+                    class="menu-list-img"
+                    src="upgrade/img/audit1.png"
+                    alt="ico-settings"
+                  />
+                  <span>Audit</span>
+                </aside>
+              </li>
+
+              <li class="list-item" onclick="myLink('record')">
+                <aside class="menu-list-item">
+                  <img
+                    class="menu-list-img"
+                    src="upgrade/img/timer.svg"
+                    alt="ico-download"
+                  />
+                  <span>Break</span>
+                </aside>
+              </li>
+
+              <li class="list-item" onclick="myLink('settings')">
+                <aside class="menu-list-item">
+                  <img
+                    class="menu-list-img to-spin"
+                    src="upgrade/img/settings.png"
+                    alt="ico-settings"
+                  />
+                  <span>Settings</span>
+                </aside>
+              </li>
+
+              <li class="list-item" onclick="displayRevision()">
+                <aside class="menu-list-item">
+                  <img
+                    class="menu-list-img"
+                    src=" https://w7.pngwing.com/pngs/380/554/png-transparent-recycle-logo-recycling-symbol-icon-recycle-leaf-recycling-waste-thumbnail.png"
+                    alt="recycle image"
+                  />
+                  <span>Recycle</span>
+                </aside>
+              </li>
+
+            </ul>
+          </section>
+          
+          <section class="sideBar-bottom">
+            <ul>
+              <li class="list-item" id="sonolencia" onclick="myLink('audit')">
+                <aside class="menu-list-item">
+                  <h2 class="menu-list-img aux-count" id="n1-n2"></h2>
+                  <span>N1 | N2</span>
+                </aside>
+              </li>
+              <li class="list-item " id="bocejo">
+                <aside class="menu-list-item ">
+                  <h2 class="menu-list-img aux-count" id="yawn"></h2>
+                  <span>Bocejos</span>
+                </aside>
+              </li>
+              <li class="list-item">
+                <aside class="menu-list-item ">
+                  <h2  class="menu-list-img aux-count" id="others"></h2>
+                  <span>Outros</span>
+                </aside>
+              </li>
+              <li class="list-item" onclick="myLink('logout')">
+                <aside class="menu-list-item" id="logout-main">
+                  <img
+                    class="menu-list-img"
+                    src="upgrade/img/logout.png"
+                    alt="ico-settings"
+                  />
+                  <span>Log out</span>
+                </aside>
+              </li>
+
+            </ul>
+          </section>
+          
+        </nav>
+        <div class="flex center p-2 tittle-smart container-form">
+          <img
+            class="hpx-35"
+            src="./upgrade/img/sleep.png"
+            alt="icon of yarm"
+          />
+          <h1 class="text-sky-900">MONITORAMENTO CCI - FADIGA</h1>
+        </div>
+
+        <h2 class="center">Preencha os campos abaixo, com um tipo de alerta</h2>
+
+        <form class="son-info">
+          <input
+            onclick="handleAutoComplete('autocomplete-alerta','opcoes-alerta')"
+            type="text"
+            id="autocomplete-alerta"
+            list="opcoes-alerta"
+            placeholder="Selecione ou digite, um tipo de alerta..."
+          />
+
+          <datalist id="opcoes-alerta">
+            <option value="Ausência"></option>
+            <option value="Atenção"></option>
+            <option value="Bocejo"></option>
+            <option value="Câmera Coberta"></option>
+            <option value="Celular"></option>
+            <option value="Cigarro"></option>
+            <option value="Gesto Obceno"></option>
+            <option value="Incident"></option>
+            <option value="Sonolência N1"></option>
+            <option value="Sonolência N2"></option>
+            <option value="Palavra de Baixo Calão"></option>
+            <option value="Sem Cinto"></option>
+          </datalist>
+
+          <input
+            id="placa"
+            type="text"
+            placeholder="Digite ou cole uma placa..."
+            required
+          />
+          <input
+            onclick="handleAutoComplete('autocomplete-filial','opcoes-filia')"
+            type="text"
+            id="autocomplete-filial"
+            list="opcoes-filial"
+            placeholder="Selecione ou digite, uma filial..."
+            required
+          />
+
+          <datalist id="opcoes-filial">
+            <option value="África"></option>
+            <option value="Anglo"></option>
+            <option value="Aracruz"></option>
+            <option value="Bracell"></option>
+            <option value="Cenibra"></option>
+            <option value="Cmpc"></option>
+            <option value="Costa Rica"></option>
+            <option value="Furlan"></option>
+            <option value="Limeira"></option>
+            <option value="MMI"></option>
+            <option value="Sete Lagoas"></option>
+            <option value="Tereos"></option>
+            <option value="Três Lagoas"></option>
+            <option value="Rodoviário"></option>
+            <option value="Zilor"></option>
+          </datalist>
+
+          <button type="button" id="limparCampos">Limpar campos</button>
+          <input class="outline" id="qtd_bocejo" type="text" disabled />
+
+          <button type="button" onclick="msg()">Gerar tratativa</button>
+        </form>
+
+        <section
+          id="clock"
+          class="absolute duration-200 transition-09s disable"
+        >
+          <aside
+            class="relative flex row border-none cart-1 colo-neutral-900 bround-lg shadow-lg p-0 bg-blue-950-a"
+          >
+            <nav
+              class="flex col jc-around relative h-auto bg-slate-50 p-0 wpx-55 list-style"
+            >
+              <img
+                src="./upgrade/img/menu.png"
+                alt="icone de timer"
+                class="wpx-25"
+              />
+              <li>
+                <img
+                  src="./upgrade/img/alarm_on.svg"
+                  alt="icone de timer on"
+                  class="wpx-25"
+                />
+              </li>
+              <li>
+                <img
+                  src="./upgrade/img/timer_off.svg"
+                  alt="icone de timer off"
+                  class="wpx-25"
+                />
+              </li>
+              <li>
+                <img
+                  src="./upgrade/img/restaurant.svg"
+                  alt="icone de dinner"
+                  class="wpx-25"
+                />
+              </li>
+              <li>
+                <img
+                  src="./upgrade/img/info.png"
+                  alt="icone de infos"
+                  class="wpx-25"
+                />
+              </li>
+              <li>
+                <img
+                  src="./upgrade/img/settings.png"
+                  alt="icone de settings"
+                  class="wpx-25"
+                />
+              </li>
+            </nav>
+            <section
+              class="flex col jc-between flex-start h-auto w-full bg-slate-200 p-2"
+            >
+              <h2 class="top-0 p-2 relative">
+                Relógio
+                <audio id="alarm-clock" controls>
+                  <source
+                    src="../ringtone/htc_touch_3_g.mp3"
+                    type="audio/mpeg"
+                  />
+                </audio>
+              </h2>
+              <h1 id="showClock" class="margin-auto">00:00</h1>
+              <section id="container-registrarBatida">
+                <label>Incluir batida</label>
+                <form class="flex row jc-between align-center gap2">
+                  <input type="time" id="capturarBatida" class="_w-30" />
+                  <button id="salvarBatida">salvar</button>
+                </form>
+              </section>
+            </section>
+            <input
+              type="button"
+              value="X"
+              id="close-clock"
+              class="hpx-25 wpx-25 sm absolute right-0 mr-1 mt-1 hover-colo-red"
+            />
+          </aside>
+        </section>
+
+        <fieldset>
+          <legend>E-mail:</legend>
+          <label for="fdest">Destinatario:</label>
+          <textarea disabled id="fdest"></textarea><br />
+          <label for="fassunto">Assunto:</label>
+          <textarea disabled id="fassunto"></textarea><br /><br />
+        </fieldset>
+
+        <textarea
+          onclick="copyToClickBoard('message-email')"
+          id="message-email"
+          disabled
+        >
+Message display empty</textarea
+        >
+
+        <textarea
+          onclick="copyToClickBoard('message-goawake')"
+          id="message-goawake"
+          disabled
+        >
+Comments message empty</textarea
+        >
+      </section>
+
+      <div class="foot">
+        
+          SysTrat v3.0.1 |
+          <a href="https://2d6f597a-2541-4843-ba77-7755a640183a-00-34lc6tyi6oswn.picard.replit.dev/" target="_blank"
+            ><b>Soluttec</b></a
+          >
+          &copy; 2023 - 2024 
+        <a  href="https://drive.google.com/file/d/130YmVKlq-PZI3OV6-SVXf17VPoZyadHI/view?usp=sharing" style="color: #007bff" id="pdfViewer" target="_blank">Manual de uso SysTrat</a>
+        
+          <!--a src="https://onedrive.live.com/embed?resid=7bab069a29005223%21128696&authkey=!ANM5Tj0apecAoxk&em=2" width="700" height="400" frameborder="1" scrolling="yes">Manual</a-->
+        
+       
+      </div>
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css"
+      />
+      <a
+        id="robbu-whatsapp-button"
+        target="_blank"
+        href="https://api.whatsapp.com/send?phone=+5535991495521&text=Ol%C3%A1,%20gostaria%20de%20falar%20com%20o%20suporte"
+      >
+        <div class="rwb-tooltip">Reportar erros do sistema</div>
+        <img
+          src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg"
+        />
+      </a>
+      <div id="outro" class="desprederButtom"></div>
+    </main>
+    <script src="control.js"  ></script>
+    <script src="https://unpkg.com/notie"></script>
+  </body>
+</html>

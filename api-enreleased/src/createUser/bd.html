@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Cadastro</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #282c34;
+      color: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color:rgb(31, 41, 91);
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: rgb(50, 63, 129);
+    }
+  </style>
+  <script>
+    function cadastrarUsuario() {
+      var nome = document.getElementById('nome').value;
+      var sobrenome = document.getElementById('sobrenome').value;
+      var email = document.getElementById('email').value;
+      var login = document.getElementById('login').value;
+      var senha = document.getElementById('senha').value;
+      var confirmarSenha = document.getElementById('confirmeSenha').value;
+
+      if (nome === "" || sobrenome === "" || email === "" || senha === "" || login === "" || confirmarSenha === "") {
+          alert("Por favor, preencha todos os campos do formulário.");
+          return;
+      }
+
+      if (senha !== confirmarSenha) {
+        alert('As senhas não coincidem. Tente novamente.');
+        return;
+      }
+
+      // Concatenando os parâmetros em uma string
+      const inputString = login.toString() + senha.toString();
+
+      let hash = 0;
+
+      // Calculando um valor hash simples para a string concatenada
+      for (let i = 0; i < inputString.length; i++) {
+          const char = inputString.charCodeAt(i);
+          hash = (hash + char) + (hash << 10);
+      }
+
+      var usuario = {
+        nome: nome,
+        sobrenome: sobrenome,
+        email: email,
+        login: login,
+        senha: hash
+      };
+
+      var listaUsuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+      listaUsuarios.push(usuario);
+
+      localStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+
+      alert('Cadastro realizado com sucesso!');
+
+      // Limpar os campos após o cadastro
+      document.getElementById('nome').value = '';
+      document.getElementById('sobrenome').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('login').value = '';
+      document.getElementById('senha').value = '';
+      document.getElementById('confirmeSenha').value = '';
+
+      
+      window.location.pathname = "index.html"
+     
+    }
+  </script>
+</head>
+<body>
+
+  <form>
+    <h1>Furmulário de Cadastro</h1>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required>
+
+    <label for="sobrenome">Sobrenome:</label>
+    <input type="text" id="sobrenome" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="login">Login:</label>
+    <input type="text" id="login" required>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" required>
+
+    <label for="confirmeSenha">Confirme a Senha:</label>
+    <input type="password" id="confirmeSenha" required>
+
+    <button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
+  </form>
+
+</body>
+</html>
